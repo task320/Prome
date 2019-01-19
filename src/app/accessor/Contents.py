@@ -7,6 +7,7 @@ import traceback
 from app.accessor.DbConnecter import DbConection
 from sqlalchemy.sql import expression, functions
 from app.model.Contents import Contents as model_contents
+from Config import Config
 
 class Contents(DbConection):
     
@@ -19,6 +20,22 @@ class Contents(DbConection):
                             .query(model_contents)\
                             .filter_by(id = contents_id)\
                             .first()
+           
+            if(self.target_data.count()):
+                return True             
+        except:
+            traceback.print_exc()
+        finally:
+            self.session.close()
+            
+        return False
+    
+    def selectContentAll(self, current_page):
+        try:
+            self.target_data = self.session\
+                            .query(model_contents)\
+                            .limit(Config.DISPLAY_NUMBER_OF_CONTENTS)\
+                            .offset(Config.DISPLAY_NUMBER_OF_CONTENTS * current_page)
            
             if(self.target_data.count()):
                 return True             

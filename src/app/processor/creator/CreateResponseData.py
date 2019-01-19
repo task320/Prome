@@ -14,7 +14,7 @@ def create_respone_contents_data(current_page, contents):
     if((number_of_content % Config.DISPLAY_NUMBER_OF_CONTENTS) > 0):
         pager += 1
     
-    for i in (0,contents.count):  
+    for i in (0,Config.DISPLAY_NUMBER_OF_CONTENTS):  
         contents[i].content = ConvertHtml(contents[i].content)
     
     return Response(None, pager, current_page, contents)

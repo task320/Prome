@@ -16,12 +16,13 @@ class File(Resource):
         if(not Authorize.is_authorize()):
             return json.dumps(Response("ログインしてください")),500
         
-        body_json = Request.get_json
+        title = Request.form['title']
+        tags = json.loads(Request.form['tags'])
         upload_file = Request.files['upload_file']
         
         content = Content(None,
-                          body_json['title'],
-                          body_json['tags'],
+                          title,
+                          tags,
                           upload_file.readlines(),
                           session['user_id'],
                           None,
@@ -40,12 +41,14 @@ class File(Resource):
         if(not Authorize.is_authorize()):
             return json.dumps(Response("ログインしてください")),500
         
-        body_json = Request.get_json
+        content_id = Request.form['content_id']
+        title = Request.form['title']
+        tags = json.loads(Request.form['tags'])
         upload_file = Request.files['upload_file']
         
-        content = Content(body_json['content_id'],
-                          body_json['title'],
-                          body_json['tags'],
+        content = Content(content_id,
+                          title,
+                          tags,
                           upload_file.readlines(),
                           session['user_id'],
                           None,
@@ -64,8 +67,8 @@ class File(Resource):
         if(not Authorize.is_authorize()):
             return json.dumps(Response("ログインしてください")),500
         
-        body_json = Request.get_json        
-        content = Content(body_json['content_id'],
+        content_id = Request.form['content_id']       
+        content = Content(content_id,
                           None,
                           None,
                           None,

@@ -5,6 +5,7 @@ Created on 2018/11/26
 '''
 import traceback
 from markdown import Markdown as md
+from flask import Markup
 
 class ConvertHtml:
     '''
@@ -19,7 +20,7 @@ class ConvertHtml:
        
     def to_html(self):
         try:
-            return self.md_processor.convert(self, self.source)
+            return Markup.escape(self.md_processor.convert(self.source))
         except:
             traceback.print_exc()
             return ''
