@@ -17,7 +17,7 @@ class Search(Resource):
         if(proc == Url.SEARCH_TAG):
             return self.search_tag(body_json['tags'], body_json['current_page'])
         elif(proc == Url.SEARCH_TITLE):
-            pass
+            return self.search_tag(body_json['title'], body_json['current_page'])
             
     def search_tag(self, tags, current_page):
         proc = proc_serach()
