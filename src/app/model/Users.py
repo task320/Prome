@@ -11,7 +11,7 @@ Base = declarative_base()
 
 class Users(Base):
   
-    __tablename__ = 'USERS'
+    __tablename__ = 'users'
     
     id = Column(VARCHAR(32), primary_key=True)
     password = Column(VARCHAR(32))

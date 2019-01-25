@@ -14,5 +14,5 @@ class DbConection:
 
     def __init__(self):
         engine = create_engine(Config.DATABASE_URI, echo=Config.SQLALCHEMY_ECHO)
-        self.session = sessionmaker(bind=engine)
-        
+        Session = sessionmaker(bind=engine)
+        self.session = Session()
