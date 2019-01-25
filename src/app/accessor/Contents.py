@@ -12,7 +12,7 @@ from Config import Config
 class Contents(DbConection):
     
     def __init__(self):
-        super.__init__()
+        super().__init__()
         
     def selectContent(self, contents_id):
         try:
@@ -50,12 +50,12 @@ class Contents(DbConection):
         return self.target_data
 
     def insertContent(self, content):
-        try:
+        try:                
             record = model_contents(title = content.title,
                              tags = content.tags, 
                              content = content.content,
-                             user_id = content.users_id,
-                             create_at = functions.current_timestamp,
+                             users_id = content.users_id,
+                             upload_at = functions.current_timestamp(),
                              update_at = expression.Null(),
                              version = 1
                              )
@@ -83,7 +83,7 @@ class Contents(DbConection):
             target_data.title = content.title
             target_data.tags =  content.tags
             target_data.content = content.content
-            target_data.update_at = functions.current_timestamp
+            target_data.update_at = functions.current_timestamp()
             target_data.version += 1
            
             self.session.add(target_data)
