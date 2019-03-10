@@ -5,19 +5,19 @@ Created on 2018/11/18
 '''
 from flask_restful import Resource
 from flask import Request, json
-from app.dto import Response
+from app.dto.Response import Response
 from app.constant.Url import Url
-from app.processor.Search import Search as proc_serach
+from app.accessor.Search import Search as proc_serach
 from app.processor.creator import CreateResponseData
 
 
 class Search(Resource):
     def get(self, proc):
-        body_json = Request.get_json
+        body_json = Request.get_json(self)
         if(proc == Url.SEARCH_TAG):
             return self.search_tag(body_json['tags'], body_json['current_page'])
         elif(proc == Url.SEARCH_TITLE):
-            return self.search_tag(body_json['title'], body_json['current_page'])
+            return self.search_title(body_json['title'], body_json['current_page'])
             
     def search_tag(self, tags, current_page):
         proc = proc_serach()

@@ -115,3 +115,5 @@ dmypy.json
 
 #nodejs
 front_src/node_modules/
+
+\.vscode/
