@@ -88,7 +88,7 @@ class Contents(DbConection):
            
             self.session.add(target_data)
             self.session.commit()
-            return True;
+            return True
         except:
             self.session.rollback
             traceback.print_exc()
@@ -106,7 +106,7 @@ class Contents(DbConection):
            
             self.session.delete(target_data)
             self.session.commit()
-            return True;
+            return True
         except:
             self.session.rollback
             traceback.print_exc()

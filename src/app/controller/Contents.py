@@ -6,7 +6,7 @@ Created on 2018/11/18
 
 from flask_restful import Resource
 from flask import Request, json
-from app.dto import Response
+from app.dto.Response import Response
 from app.accessor.Contents import Contents as dao_contents
 from app.processor.creator import CreateResponseData
 from app.constant.Url import Url

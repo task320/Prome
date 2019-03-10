@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Prome</title>
+    </head>
+    <body>
+        {% block header scoped %}{% endblock %}
+        {% if response.pager %}
+            {% block pager scoped %}{% endblock %}
+        {% endif %}
+        {% block contents scoped %}{% endblock %}
+        {% block footer scoped %}{% endblock %}
+    </body>
+</html>

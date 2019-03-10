@@ -20,9 +20,9 @@ def create_app(config_name):
          resource = {r'/api/*':{"origins":"*"}})
 
     #routing  
-    api.add_resource(Search,'/api/search/<string:proc>')
+    api.add_resource(Search,'/search/<string:proc>')
     api.add_resource(File,'/api/file')
-    api.add_resource(Contents,'/api/contents/<string:proc>')
+    api.add_resource(Contents,'/contents/<string:proc>')
     api.add_resource(User,'/api/user/<proc>')
     
     return app;
