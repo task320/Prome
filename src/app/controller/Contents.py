@@ -8,8 +8,9 @@ from flask_restful import Resource
 from flask import Request, json
 from app.dto.Response import Response
 from app.accessor.Contents import Contents as dao_contents
-from app.processor.creator import CreateResponseData
+from app.processor.creator import CreateResponseData, HtmlRender
 from app.constant.Url import Url
+
 
 class Contents(Resource, Request):
     '''
@@ -33,7 +34,7 @@ class Contents(Resource, Request):
     def contents_one(self, contents_id):        
         dao = dao_contents()
         if(dao.selectContent(contents_id)):
-            return json.dumps(CreateResponseData.create_respone_content_data(dao.get_target_content()))
+            return HtmlRender.render('index.html', CreateResponseData.create_respone_content_data(dao.get_target_content()))
         else:
             return json.dumps(Response("ERRER")),500
         
@@ -41,7 +42,7 @@ class Contents(Resource, Request):
     def contents_all(self, current_page):
         dao = dao_contents()
         if(dao.selectContentAll(current_page)):
-            return json.dumps(CreateResponseData.create_respone_contents_data(current_page, dao.get_target_content()))
+            return HtmlRender.render('index.html', CreateResponseData.create_respone_contents_data(current_page, dao.get_target_content()))
         else:
             return json.dumps(Response("ERRER")),500 
 
