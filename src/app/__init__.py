@@ -17,7 +17,8 @@ def create_app(config_name):
     
     api = Api(app)
     CORS(app, 
-         resource = {r'/api/*':{"origins":"*"}})
+         resource = {r'/api/*':{"origins":"*"},
+                    r'/contents/*':{"origins":"*"}})
 
     #routing  
     api.add_resource(Search,'/search/<string:proc>')
@@ -25,6 +26,6 @@ def create_app(config_name):
     api.add_resource(Contents,'/contents/<string:proc>')
     api.add_resource(User,'/api/user/<proc>')
     
-    return app;
+    return app
     
     

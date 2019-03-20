@@ -6,7 +6,7 @@
         <div id="upload_at">投稿日:{{ content.upload_at }}</div>
         <div id="update_at">更新日:{{ content.update_at }}</div>
         <div id="article">
-            {{ content.content }}
+            {{ content.html_content }}
         </div>
         <div id="tags">
         {% for tag in content.tags %}
