@@ -5,14 +5,15 @@ Created on 2018/11/18
 '''
 
 from flask_restful import Resource
-from flask import Request, json
+from flask import Response as f_response
+from flask import request, json
 from app.dto.Response import Response
 from app.accessor.Contents import Contents as dao_contents
 from app.processor.creator import CreateResponseData, HtmlRender
 from app.constant.Url import Url
 
 
-class Contents(Resource, Request):
+class Contents(Resource):
     '''
     classdocs
     '''
@@ -21,30 +22,42 @@ class Contents(Resource, Request):
         pass
     
     def get(self, proc):
-        body_json = self.get_json(True, True, True)
+        
         if(proc == Url.CONTENTS_ONE):
-            return self.contents_one(body_json['contents_id'],)
+            contents_id = request.args.get('contents_id')
+            return self.contents_one(contents_id)
         elif(proc == Url.CONTENTS_ALL):
-            if 'current_page' in body_json:
-                print("exsist")
-            else:
-                print("nothing")
-            return self.contents_all(body_json['current_page'],)
+            current_page = int(request.args.get('page'), base=0)
+            return self.contents_all(current_page)
         
     def contents_one(self, contents_id):        
         dao = dao_contents()
         if(dao.selectContent(contents_id)):
-            return HtmlRender.render('index.html', CreateResponseData.create_respone_content_data(dao.get_target_content()))
+            return f_response(
+                                HtmlRender.render('index.html', CreateResponseData.create_respone_content_data(dao.get_target_content())),
+                                mimetype='text/html',
+                                content_type='text/html',
+                                status=200
+            )
         else:
             return json.dumps(Response("ERRER")),500
         
         
     def contents_all(self, current_page):
+        page_zero_base = current_page - 1
+        if(page_zero_base < 0):
+            return "ERROR",500
+
         dao = dao_contents()
-        if(dao.selectContentAll(current_page)):
-            return HtmlRender.render('index.html', CreateResponseData.create_respone_contents_data(current_page, dao.get_target_content()))
+        if(dao.selectContentAll(page_zero_base)):
+            return f_response(
+                                HtmlRender.render('index.html', CreateResponseData.create_respone_content_data(dao.get_target_content())),
+                                mimetype='text/html',
+                                content_type='text/html',
+                                status=200
+            )
         else:
-            return json.dumps(Response("ERRER")),500 
+            return "ERRER",500 
 
     
         

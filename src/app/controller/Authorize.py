@@ -10,7 +10,7 @@ from Config import Config
 def is_authorize():
     
     if(Config.DEBUG_AUTH):
-        session['user_id'] = 'test_user'
+        session['user_id'] = '1'
         return True
     else:
         if(session['user_id']):
