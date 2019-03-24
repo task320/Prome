@@ -2,10 +2,10 @@
     {% for n in range(response.pager) %}
         {% with value_page = n + 1 %}
             <div id="value_page">
-            {% if value_page is response.current_page %}
+            {% if value_page is divisibleby(response.current_page) %}
                 {{ value_page }}
             {% else %}
-                <a href="./contents/all?current_page={{ value_page }}">
+                <a href="./contents/all?page={{ value_page }}">
                     {{ value_page }}
                 </a>
             {% endif %}

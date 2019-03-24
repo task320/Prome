@@ -20,7 +20,7 @@ class ConvertHtml:
        
     def to_html(self):
         try:
-            return Markup.escape(self.md_processor.convert(self.source))
+            return Markup.unescape(self.md_processor.convert(self.source))
         except:
             traceback.print_exc()
             return ''
