@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
     <head>
         <title>Prome</title>
     </head>
     <body>
-        {% block header scoped %}{% endblock %}
+        {% include "include/header.html" %}
         {% if response.pager %}
-            {% block pager scoped %}{% endblock %}
+            {% include "include/pager.html" %}
         {% endif %}
-        {% block contents scoped %}{% endblock %}
-        {% block footer scoped %}{% endblock %}
+        {% include "include/contents.html" %}
+        {% include "include/footer.html" %}
     </body>
 </html>

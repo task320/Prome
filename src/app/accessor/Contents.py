@@ -35,9 +35,10 @@ class Contents(DbConection):
             self.target_data = self.session\
                             .query(model_contents)\
                             .limit(Config.DISPLAY_NUMBER_OF_CONTENTS)\
-                            .offset(Config.DISPLAY_NUMBER_OF_CONTENTS * current_page)
+                            .offset(Config.DISPLAY_NUMBER_OF_CONTENTS * current_page)\
+                            .all()
            
-            if(self.target_data.count()):
+            if(len(self.target_data)):
                 return True             
         except:
             traceback.print_exc()

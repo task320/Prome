@@ -8,7 +8,7 @@ from Config import Config
 from app.processor.creator.ConvertHtml import ConvertHtml
 
 def create_respone_contents_data(current_page, contents):
-    number_of_content =  contents.count()
+    number_of_content =  len(contents)
     
     pager = int(number_of_content / Config.DISPLAY_NUMBER_OF_CONTENTS)
     if((number_of_content % Config.DISPLAY_NUMBER_OF_CONTENTS) > 0):
