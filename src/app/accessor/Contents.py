@@ -13,6 +13,19 @@ class Contents(DbConection):
     
     def __init__(self):
         super().__init__()
+
+    def countContents(self):
+        try:
+            self.count_contents = self.session\
+                            .query(model_contents)\
+                            .count()
+            return True      
+        except:
+            traceback.print_exc()
+        finally:
+            self.session.close()
+            
+        return False
         
     def selectContent(self, contents_id):
         try:
@@ -49,6 +62,9 @@ class Contents(DbConection):
     
     def get_target_content(self):
         return self.target_data
+
+    def get_count(self):
+        return self.count_contents
 
     def insertContent(self, content):
         try:                

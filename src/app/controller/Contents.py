@@ -49,9 +49,9 @@ class Contents(Resource):
             return "ERROR",500
 
         dao = dao_contents()
-        if(dao.selectContentAll(page_zero_base)):
+        if(dao.countContents() & dao.selectContentAll(page_zero_base)):
             return f_response(
-                                HtmlRender.render('index.html', CreateResponseData.create_respone_contents_data(current_page, dao.get_target_content())),
+                                HtmlRender.render('index.html', CreateResponseData.create_respone_contents_data(current_page, dao.get_count(), dao.get_target_content())),
                                 mimetype='text/html',
                                 content_type='text/html',
                                 status=200
