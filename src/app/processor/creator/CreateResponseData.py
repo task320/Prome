@@ -7,9 +7,8 @@ from app.dto.Response import Response
 from Config import Config
 from app.processor.creator.ConvertHtml import ConvertHtml
 
-def create_respone_contents_data(current_page, contents):
-    number_of_content =  len(contents)
-    
+def create_respone_contents_data(current_page, number_of_content, contents):
+        
     pager = int(number_of_content / Config.DISPLAY_NUMBER_OF_CONTENTS)
     if((number_of_content % Config.DISPLAY_NUMBER_OF_CONTENTS) > 0):
         pager += 1
