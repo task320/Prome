@@ -12,7 +12,6 @@ class ConvertHtml:
     classdocs
     '''
     
-
     def __init__(self, source):
         self.source = source
         self.md_processor = md()

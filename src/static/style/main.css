@@ -1,0 +1,161 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.header {
+  width: 100%;
+  height: 100px;
+  background-color: black;
+}
+
+.header__title {
+  color: white;
+  font-size: 64px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background-color: black;
+  color: white;
+  text-align: left;
+}
+
+.pagination {
+  border: 1px solid black;
+  -webkit-box-shadow: 5px 5px;
+          box-shadow: 5px 5px;
+  text-align: center;
+  width: 80%;
+  margin: 12px auto;
+  padding: 10px 10px 10px 10px;
+}
+
+.pagination__page {
+  margin: 5px;
+}
+
+.content {
+  border: 1px solid black;
+  -webkit-box-shadow: 5px 5px;
+          box-shadow: 5px 5px;
+  padding: 10px 10px 30px 10px;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.content__header {
+  border-bottom: 1px solid black;
+  padding: 10px 0px;
+}
+
+.content__title {
+  display: inline-block;
+  font-size: 48px;
+}
+
+.content__datetimes {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.content-datetimes__datetime {
+  margin: 0px 0px 0px 10px;
+  font-size: 12px;
+}
+
+.content__article {
+  margin: 0px 0px 20px 20px;
+  clear: both;
+}
+
+.content__article h1, .content__article h2, .content__article h3, .content__article h4, .content__article h5 {
+  font-weight: bold;
+  padding: 20px 0px 20px 0px;
+}
+
+.content__article h1 {
+  font-size: 32px;
+}
+
+.content__article h2 {
+  font-size: 24px;
+}
+
+.content__article h3 {
+  font-size: 16px;
+}
+
+.content__article h4 {
+  font-size: 12px;
+}
+
+.content__article h5 {
+  font-size: 8px;
+}
+
+.content__article p {
+  padding: 10px;
+  background: black;
+  color: white;
+}
+
+.content__tags {
+  padding: 10px 0px 10px 0px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.content-tags__tag {
+  display: inline-block;
+  margin: 5px;
+}
+/*# sourceMappingURL=main.css.map */
