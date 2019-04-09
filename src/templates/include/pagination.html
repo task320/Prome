@@ -1,7 +1,8 @@
-<div id="pager">
+<div class="pagination">
+    <span>Page</span>
     {% for n in range(response.pager) %}
         {% with value_page = n + 1 %}
-            <div id="value_page">
+            <div class="pagination__page">
             {% if value_page is divisibleby(response.current_page) %}
                 {{ value_page }}
             {% else %}

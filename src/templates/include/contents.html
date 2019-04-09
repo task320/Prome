@@ -1,17 +1,22 @@
-<div id="contents">
+<section>
     {% for content in response.contents %}
-    <div id="content">
-        <div id="content_title">{{ content.title }}</div>
-        <div id="upload_at">投稿日:{{ content.upload_at }}</div>
-        <div id="update_at">更新日:{{ content.update_at }}</div>
-        <div id="article">
+    <article class="content">
+        <header class="content__header">
+            <span class="content__title">{{ content.title }}</span>
+            <div class="content__datetimes">
+                <span class="content-datetimes__datetime">投稿日:<time>{{ content.upload_at }}</time></span>
+                <span class="content-datetimes__datetime">更新日:<time>{{ content.update_at }}</time></span>
+            </div>
+        </header> 
+        <div class="content__article">
             {{ content.html_content }}
         </div>
-        <div id="tags">
+        <div class="content__tags">
+            <span class="content-tags__tag"><h1>タグ:</h1></span>
         {% for tag in content.tags %}
-            <div id="tag">{{ tag }}</div>
+            <div class="content-tags__tag">{{ tag }}</div>
         {% endfor %}
         </div>
-    </div>
+    </article>
     {% endfor %}
-</div>
+</section>

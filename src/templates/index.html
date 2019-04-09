@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
+        <meta charset="UTF-8">
         <title>Prome</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='style/main.css')}}">
     </head>
     <body>
         {% include "include/header.html" %}
         {% if response.pager %}
-            {% include "include/pager.html" %}
+            {% include "include/pagination.html" %}
         {% endif %}
         {% include "include/contents.html" %}
         {% include "include/footer.html" %}
