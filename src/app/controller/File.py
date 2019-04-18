@@ -8,16 +8,14 @@ from flask import request, json
 from app.dto.Content import Content
 from app.dto.Response import Response
 from app.accessor.Contents import Contents
-from app.controller import Authorize
+from app.controller.Login import Login
 from flask import session
-from app.processor.creator.TextReader import TextReader
+from app.processor.TextReader import TextReader
 
 class File(Resource):
 
-    def post(self):
-        if(not Authorize.is_authorize()):
-            return json.dumps(Response("ログインしてください")),500
-        
+    @classmethod
+    def post(self):        
         title = request.form['title']
         tags = json.loads(request.form['tags'])
         upload_file = TextReader(request.files['upload_file'])
@@ -39,10 +37,8 @@ class File(Resource):
         else:
             return json.dumps(Response("ERRER")),500
 
-    def put(self):
-        if(not Authorize.is_authorize()):
-            return json.dumps(Response("ログインしてください")),500
-        
+    @classmethod
+    def put(self):        
         content_id = request.form['content_id']
         title = request.form['title']
         tags = json.loads(request.form['tags'])
@@ -65,10 +61,8 @@ class File(Resource):
         else:
             return json.dumps(Response("ERRER")),500
 
-    def delete(self):
-        if(not Authorize.is_authorize()):
-            return json.dumps(Response("ログインしてください")),500
-        
+    @classmethod
+    def delete(self):        
         content_id = request.form['content_id']       
         content = Content(content_id,
                           None,

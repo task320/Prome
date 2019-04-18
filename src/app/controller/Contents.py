@@ -6,7 +6,8 @@ Created on 2018/11/18
 from flask import Response as f_response, request, json
 from app.dto.Response import Response
 from app.accessor.Contents import Contents as dao_contents
-from app.processor.creator import CreateResponseData, HtmlRender
+from app.processor import CreateResponseData
+from app.processor.HtmlRender import HtmlRender
 from app.constant.Url import Url
 
 
@@ -27,14 +28,14 @@ class Contents():
         dao = dao_contents()
         if(dao.selectContent(contents_id)):
             return f_response(
-                                HtmlRender.render('index.html', CreateResponseData.create_respone_content_data(dao.get_target_content())),
-                                mimetype='text/html',
-                                content_type='text/html',
-                                status=200
+                HtmlRender.render('index.html', CreateResponseData.create_respone_content_data(dao.get_target_content())),
+                mimetype='text/html',
+                content_type='text/html',
+                status=200
             )
         else:
             return "ERRER",500
-    
+
     @staticmethod
     def contents_all(current_page):
         page_zero_base = current_page - 1
@@ -44,10 +45,10 @@ class Contents():
         dao = dao_contents()
         if(dao.countContents() & dao.selectContentAll(page_zero_base)):
             return f_response(
-                                HtmlRender.render('index.html', CreateResponseData.create_respone_contents_data(current_page, dao.get_count(), dao.get_target_content())),
-                                mimetype='text/html',
-                                content_type='text/html',
-                                status=200
+                HtmlRender.render('index.html', CreateResponseData.create_respone_contents_data(current_page, dao.get_count(), dao.get_target_content())),
+                mimetype='text/html',
+                content_type='text/html',
+                status=200
             )
         else:
             return "ERRER",500 

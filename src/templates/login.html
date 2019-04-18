@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>Prome LOGIN</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='style/login.css')}}">
+    </head>
+    <body>
+        {% include "include/header.html" %}
+        <div class="login">
+            {% if param.auth_result is defined %}
+            <span class="login__message--incorrect">ユーザID、またはパスワードが間違っています。</span>
+            {% endif %}
+            <form method="post" action="/login" >
+                <input type="text" name="user_id"  placeholder="ユーザID" class="login__input-userid"/>
+                <input type="password" name="password" placeholder="パスワード" class="input__input-pass"/>
+                <input type="submit" value="ログイン" class="login__submit"/>
+            </form>
+        </div>
+        {% include "include/footer.html" %}
+    </body>
+</html>

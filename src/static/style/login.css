@@ -73,109 +73,51 @@ table {
   font-size: 12px;
 }
 
-.pagination {
-  border: 1px solid black;
-  -webkit-box-shadow: 5px 5px;
-          box-shadow: 5px 5px;
+.login {
+  width: 300px;
+  padding: 40px;
+  background: white;
   text-align: center;
-  width: 80%;
-  margin: 12px auto;
-  padding: 10px 10px 10px 10px;
-}
-
-.pagination__page {
-  margin: 5px;
-}
-
-.content {
+  margin: 20px auto;
   border: 1px solid black;
   -webkit-box-shadow: 5px 5px;
           box-shadow: 5px 5px;
-  padding: 10px 10px 30px 10px;
-  margin: 0 auto;
-  width: 80%;
 }
 
-.content__header {
-  border-bottom: 1px solid black;
-  padding: 10px 0px;
-}
-
-.content__title {
-  display: inline-block;
-  font-size: 48px;
-}
-
-.content__datetimes {
-  display: inline-block;
-  vertical-align: bottom;
-}
-
-.content-datetimes__datetime {
-  margin: 0px 0px 0px 10px;
-  font-size: 12px;
-}
-
-.content__article {
-  margin: 0px 0px 20px 20px;
-  clear: both;
-}
-
-.content__article h1, .content__article h2, .content__article h3, .content__article h4, .content__article h5 {
-  font-weight: bold;
-  padding: 20px 0px 20px 0px;
-}
-
-.content__article h1 {
-  font-size: 32px;
-}
-
-.content__article h2 {
-  font-size: 24px;
-}
-
-.content__article h3 {
+.login__input-userid, .input__input-pass {
+  border: 0;
+  background: black;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  padding: 14px 10px;
+  width: 200px;
+  outline: none;
+  color: white;
   font-size: 16px;
 }
 
-.content__article h4 {
+.login__message--incorrect {
+  border: 1px solid red;
+  color: red;
   font-size: 12px;
+  padding: 12px;
 }
 
-.content__article h5 {
-  font-size: 8px;
+.login__submit {
+  background: white;
+  border: none;
+  font-size: 12px;
+  border: 1px solid black;
+  padding: 4px 10px;
 }
 
-.content__article p {
-  padding: 10px;
+.login__submit:active {
   background: black;
   color: white;
 }
 
-.content__article ul, .content__article ol {
-  margin: 0px 0px 0px 20px;
+.login__submit:focus {
+  outline: none;
 }
-
-.content__article ul {
-  list-style-type: square;
-}
-
-.content__article ol {
-  list-style-type: decimal;
-}
-
-.content__article li {
-  padding: 5px 0px;
-}
-
-.content__tags {
-  padding: 10px 0px 10px 0px;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-}
-
-.content-tags__tag {
-  display: inline-block;
-  margin: 5px;
-}
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=login.css.map */

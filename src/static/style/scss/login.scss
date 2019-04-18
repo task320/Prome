@@ -1,0 +1,46 @@
+@import 'import/reset.scss';
+@import 'import/header.scss';
+@import 'import/footer.scss';
+
+.login {
+    width: 300px;
+    padding: 40px;
+    background: white;
+    text-align: center;
+    margin: 20px auto;
+    border: 1px solid black;
+    box-shadow: 5px 5px;
+}
+
+.login__input-userid, .input__input-pass {
+    border:0;
+    background: black;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    font-size: 16px;
+}
+.login__message--incorrect {
+    border: 1px solid red;
+    color: red;
+    font-size: 12px;
+    padding: 12px;
+}
+.login__submit {
+    background: white;
+    border: none;
+    font-size: 12px;
+    border: 1px solid black;
+    padding: 4px 10px
+}
+.login__submit:active {
+        background: black;
+        color: white;
+}
+.login__submit:focus {
+    outline: none;
+}

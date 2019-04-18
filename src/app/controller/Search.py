@@ -8,7 +8,7 @@ from flask import Request, json
 from app.dto.Response import Response
 from app.constant.Url import Url
 from app.accessor.Search import Search as proc_serach
-from app.processor.creator import CreateResponseData
+from app.processor import CreateResponseData
 
 
 class Search(Resource):
