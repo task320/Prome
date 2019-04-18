@@ -7,7 +7,7 @@
     </head>
     <body>
         {% include "include/header.html" %}
-        {% if response.pager %}
+        {% if param.pager %}
             {% include "include/pagination.html" %}
         {% endif %}
         {% include "include/contents.html" %}

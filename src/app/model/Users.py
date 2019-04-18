@@ -14,7 +14,7 @@ class Users(Base):
     __tablename__ = 'users'
     
     id = Column(VARCHAR(32), primary_key=True)
-    password = Column(VARCHAR(32))
+    auth_string = Column(VARCHAR(512))
     create_at = Column(TIMESTAMP)
     update_at = Column(TIMESTAMP)
     
