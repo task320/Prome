@@ -4,7 +4,7 @@ Created on 2018/11/26
 @author: Tanuki
 '''
 
-from flask import session, request, Response
+from flask import session, request, Response, redirect, url_for
 from app.processor.HtmlRender import HtmlRender
 from app.accessor.User import User
 
@@ -35,14 +35,9 @@ class Login():
         proc_result = user.auth(user_id, password)
 
         if(proc_result):
-            if(user.get_count_users() > 0):
-                session['auth'] = 1
-                return Response(
-                    HtmlRender.render('console.html', None),
-                    mimetype='text/html',
-                    content_type='text/html',
-                    status=200
-                )
+            if(user.get_users_id()):
+                session['user_id'] = user.get_users_id()
+                return redirect(url_for('console', proc='list'))
     
         return Response(
             HtmlRender.render('login.html', {'auth_result':'No'}),

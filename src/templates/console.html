@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <script src="{{ url_for('static', filename='script/console.js') }}"></script>
+        <title>Prome Console</title>
+    </head>
+    <body>
+        {% include "include/header.html" %}
+        <h1>新規</h1>
+        <div>
+            <form name="postContent" method="POST" action="{{ url_for('file', proc='post') }}">
+                タイトル：<input name="title" type="text" />
+                タグ：<input name="tags" type="text" />
+                mdファイル：<input name="uploadFile" type="file" />
+                <button onclick="postContent()">投稿</button>
+            </form>
+        </div>
+        <h1>編集・削除</h1>
+        {% include "include/console_content_list.html" %}
+        {% include "include/footer.html" %}
+    </body>
+</html>

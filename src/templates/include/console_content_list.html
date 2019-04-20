@@ -1,0 +1,28 @@
+<section>
+    <form name="formContent" method="POST" action="{{ url_for('file', proc='delete') }}">
+    <input name="contentId" type="hidden" />
+    {% for content in param.contents %}
+    <article>
+        <div>
+            <div>
+                <span>{{ content.title }}</span>
+            </div>
+            <div>
+                <span>タグ:</span>
+                {% for tag in content.tags %}
+                <span>{{ tag }}</span>
+                {% endfor %}
+            </div>
+        </div>
+        <div>
+            <span>投稿日:<time>{{ content.upload_at }}</time></span>
+            <span>更新日:<time>{{ content.update_at }}</time></span>
+        </div>
+        <div>
+            <button type="button" onclick="editContent( {{ content.id }} );">編集</button>
+            <button type="button" onclick="deleteContent( {{ content.id }} );">削除</button>
+        </div>
+    </article>
+    {% endfor %}
+    </form>
+</section>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <script src="{{ url_for('static', filename='script/edit.js') }}"></script>
+        <title>Prome Edit</title>
+    </head>
+    <body>
+        {% include "include/header.html" %}
+        <h1>編集</h1>
+        <div>
+            <form name="putContent" enctype="multipart/form-data" method="POST" action="{{ url_for('file', proc='put') }}">
+                タイトル：<input name="title" type="text" value="{{ param.contents.title }}"/>
+                タグ：<input name="tags" type="text" value="{{ param.contents.tags }}"/>
+                mdファイル：<input name="uploadFile" type="file" />
+                <button type="button" onclick="putContent()">アップロード</button>
+            </form>
+        </div>
+        {% include "include/footer.html" %}
+    </body>
+</html>

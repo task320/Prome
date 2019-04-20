@@ -34,7 +34,7 @@ class Contents(DbConection):
                             .filter_by(id = contents_id)\
                             .first()
            
-            if(self.target_data.count()):
+            if(self.target_data):
                 return True             
         except:
             traceback.print_exc()
@@ -131,5 +131,23 @@ class Contents(DbConection):
             self.session.close()
             
         return False
+
+    def selectContentsList(self):
+        try:
+            self.target_data = self.session\
+                            .query(model_contents.id, model_contents.title, model_contents.update_at, model_contents.upload_at)\
+                            .all()
+           
+            if(len(self.target_data)):
+                return True             
+        except:
+            traceback.print_exc()
+        finally:
+            self.session.close()
+            
+        return False
+
+    def getContentList(self):
+        return self.target_data
     
     

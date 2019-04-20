@@ -3,22 +3,29 @@ Created on 2018/11/18
 
 @author: Tanuki
 '''
-from flask_restful import Resource
-from flask import request, json
+from flask import request, url_for, redirect, session, json
 from app.dto.Content import Content
 from app.dto.Response import Response
 from app.accessor.Contents import Contents
-from app.controller.Login import Login
-from flask import session
 from app.processor.TextReader import TextReader
 
-class File(Resource):
-
+class File():
     @classmethod
-    def post(self):        
+    def main_entrance(cls, proc):
+        if(proc == 'post'):
+            return cls.post()
+        elif(proc == 'put'):
+            return cls.put()
+        elif(proc == 'delete'):
+            return cls.delete()
+        else:
+            return 'ERROR', 500
+
+    @staticmethod
+    def post():        
         title = request.form['title']
         tags = json.loads(request.form['tags'])
-        upload_file = TextReader(request.files['upload_file'])
+        upload_file = TextReader(request.files['uploadFile'])
         
         content = Content(None,
                           title,
@@ -33,16 +40,16 @@ class File(Resource):
         result = dao.insertContent(content)
          
         if(result):
-            return
+            return redirect(url_for('console'))
         else:
-            return json.dumps(Response("ERRER")),500
+            return "ERRER", 500
 
-    @classmethod
-    def put(self):        
-        content_id = request.form['content_id']
+    @staticmethod
+    def put():        
+        content_id = request.form['contentId']
         title = request.form['title']
         tags = json.loads(request.form['tags'])
-        upload_file = TextReader(request.files['upload_file'])
+        upload_file = TextReader(request.files['uploadFile'])
         
         content = Content(content_id,
                           title,
@@ -57,13 +64,13 @@ class File(Resource):
         result = dao.updateContent(content)
          
         if(result):
-            return
+            return redirect(url_for('console'))
         else:
-            return json.dumps(Response("ERRER")),500
+            return "ERRER", 500
 
-    @classmethod
-    def delete(self):        
-        content_id = request.form['content_id']       
+    @staticmethod
+    def delete():        
+        content_id = request.form['contentId']       
         content = Content(content_id,
                           None,
                           None,
@@ -77,7 +84,7 @@ class File(Resource):
         result = dao.deleteContent(content)
          
         if(result):
-            return
+            return redirect(url_for('console'))
         else:
-            return json.dumps(Response("ERRER")),500
+            return "ERRER", 500
         
