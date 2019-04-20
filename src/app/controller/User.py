@@ -9,6 +9,6 @@ from app.constant.Url import Url
 
 class User(Resource):
     def logout(self, proc):
-        session.pop('auth', None)
+        session.pop('user_id', None)
             
         return redirect(url_for('get_all', proc='all', page='1'))

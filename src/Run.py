@@ -10,6 +10,7 @@ from app.controller.Search import Search
 from app.controller.User import User
 from app.controller.File import File
 from app.controller.Login import Login
+from app.controller.Console import Console
 import Config
 import os
 
@@ -27,6 +28,15 @@ def get_all(proc):
 @app.route('/login', methods=['GET','POST'])
 def login():
         return Login.proccess_login()
+
+@app.route('/console/<proc>', methods=['GET'])
+def console(proc):
+        return Console.main_entrance(proc)
+
+@app.route('/file/<proc>', methods=['POST'])
+def file(proc):
+        return File.main_entrance(proc)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

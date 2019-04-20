@@ -13,10 +13,10 @@ class User(DbConection):
     def auth(self, user_id, password):
         try:
             hash = Cryptor.output_sha256(user_id, password)
-            self.count_users = self.session\
-                            .query(Users)\
+            self.users_id = self.session\
+                            .query(Users.id)\
                             .filter_by(auth_string = hash)\
-                            .count()
+                            .first()
             return True             
         except:
             traceback.print_exc()
@@ -25,5 +25,5 @@ class User(DbConection):
             
         return False
     
-    def get_count_users(self):
-        return self.count_users
+    def get_users_id(self):
+        return self.users_id
