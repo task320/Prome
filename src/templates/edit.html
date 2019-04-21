@@ -13,7 +13,8 @@
                 タイトル：<input name="title" type="text" value="{{ param.contents.title }}"/>
                 タグ：<input name="tags" type="text" value="{{ param.contents.tags }}"/>
                 mdファイル：<input name="uploadFile" type="file" />
-                <button type="button" onclick="putContent()">アップロード</button>
+                <input name="contentId" type="hidden" value="{{ param.contents.id }}">
+                <button type="button" onclick="putContents();">アップロード</button>
             </form>
         </div>
         {% include "include/footer.html" %}

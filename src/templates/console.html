@@ -9,7 +9,7 @@
         {% include "include/header.html" %}
         <h1>新規</h1>
         <div>
-            <form name="postContent" method="POST" action="{{ url_for('file', proc='post') }}">
+            <form name="postContent" enctype="multipart/form-data" method="POST" action="{{ url_for('file', proc='post') }}">
                 タイトル：<input name="title" type="text" />
                 タグ：<input name="tags" type="text" />
                 mdファイル：<input name="uploadFile" type="file" />

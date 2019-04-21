@@ -135,7 +135,7 @@ class Contents(DbConection):
     def selectContentsList(self):
         try:
             self.target_data = self.session\
-                            .query(model_contents.id, model_contents.title, model_contents.update_at, model_contents.upload_at)\
+                            .query(model_contents.id, model_contents.title, model_contents.tags, model_contents.update_at, model_contents.upload_at)\
                             .all()
            
             if(len(self.target_data)):

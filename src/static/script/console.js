@@ -5,7 +5,7 @@ function editContent(id){
 function deleteContent(id){
     let result = confirm('削除します。よろしいですか？')
     if(result){
-        document.contentId = id
+        document.getElementById('contentId').value = id
         document.formContent.submit()
     }
 }
