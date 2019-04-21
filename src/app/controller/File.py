@@ -40,7 +40,7 @@ class File():
         result = dao.insertContent(content)
          
         if(result):
-            return redirect(url_for('console'))
+            return redirect(url_for('console', proc='list'))
         else:
             return "ERRER", 500
 
@@ -64,7 +64,7 @@ class File():
         result = dao.updateContent(content)
          
         if(result):
-            return redirect(url_for('console'))
+            return redirect(url_for('console', proc='list'))
         else:
             return "ERRER", 500
 
@@ -84,7 +84,7 @@ class File():
         result = dao.deleteContent(content)
          
         if(result):
-            return redirect(url_for('console'))
+            return redirect(url_for('console', proc='list'))
         else:
             return "ERRER", 500
         

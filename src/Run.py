@@ -4,7 +4,7 @@ Created on 2018/11/18
 @author: Tanuki
 '''
 import os
-from flask import url_for, Flask, request
+from flask import url_for, Flask, request, session, redirect
 from app.controller.Contents import Contents
 from app.controller.Search import Search
 from app.controller.User import User
@@ -36,6 +36,16 @@ def console(proc):
 @app.route('/file/<proc>', methods=['POST'])
 def file(proc):
         return File.main_entrance(proc)
+
+@app.before_request
+def confirmAuthorization():
+        endpoint = request.endpoint
+        if endpoint == 'console' or endpoint == 'file':
+                if not 'user_id' in session:
+                        return redirect(url_for('login'))
+
+
+
 
 
 if __name__ == '__main__':
