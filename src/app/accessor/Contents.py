@@ -47,6 +47,7 @@ class Contents(DbConection):
         try:
             self.target_data = self.session\
                             .query(model_contents)\
+                            .order_by(model_contents.update_at.desc())\
                             .limit(Config.DISPLAY_NUMBER_OF_CONTENTS)\
                             .offset(Config.DISPLAY_NUMBER_OF_CONTENTS * current_page)\
                             .all()
@@ -136,6 +137,7 @@ class Contents(DbConection):
         try:
             self.target_data = self.session\
                             .query(model_contents.id, model_contents.title, model_contents.tags, model_contents.update_at, model_contents.upload_at)\
+                            .order_by(model_contents.update_at.desc())\
                             .all()
             return True             
         except:
