@@ -73,7 +73,7 @@ class Contents(DbConection):
                              content = content.content,
                              users_id = content.users_id,
                              upload_at = functions.current_timestamp(),
-                             update_at = expression.Null(),
+                             update_at = functions.current_timestamp(),
                              version = 1
                              )
            
@@ -137,9 +137,7 @@ class Contents(DbConection):
             self.target_data = self.session\
                             .query(model_contents.id, model_contents.title, model_contents.tags, model_contents.update_at, model_contents.upload_at)\
                             .all()
-           
-            if(len(self.target_data)):
-                return True             
+            return True             
         except:
             traceback.print_exc()
         finally:

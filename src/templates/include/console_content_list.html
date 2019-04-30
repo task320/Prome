@@ -1,5 +1,5 @@
 <section>
-    <form name="formContent" method="POST" action="{{ url_for('file', proc='delete') }}">
+    <form name="formContent" method="POST" action="{{ url_for('router.file', proc='delete') }}">
     <input id="contentId" name="contentId" type="hidden" />
     {% for content in param.contents %}
     <article>

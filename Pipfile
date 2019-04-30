@@ -9,12 +9,11 @@ rope = "*"
 
 [packages]
 flask = "*"
-flask-restful = "*"
-flask-cors = "*"
 sqlalchemy = "*"
 markdown = "*"
 jinja2 = "*"
 psycopg2 = "*"
+uwsgi = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.7"

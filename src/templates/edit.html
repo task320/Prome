@@ -9,7 +9,7 @@
         {% include "include/header.html" %}
         <h1>編集</h1>
         <div>
-            <form name="putContent" enctype="multipart/form-data" method="POST" action="{{ url_for('file', proc='put') }}">
+            <form name="putContent" enctype="multipart/form-data" method="POST" action="{{ url_for('router.file', proc='put') }}">
                 タイトル：<input name="title" type="text" value="{{ param.contents.title }}"/>
                 タグ：<input name="tags" type="text" value="{{ param.contents.tags }}"/>
                 mdファイル：<input name="uploadFile" type="file" />

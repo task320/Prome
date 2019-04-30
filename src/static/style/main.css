@@ -92,13 +92,14 @@ table {
   -webkit-box-shadow: 5px 5px;
           box-shadow: 5px 5px;
   padding: 10px 10px 30px 10px;
-  margin: 0 auto;
+  margin: 10px auto;
   width: 80%;
+  line-height: 1.6;
 }
 
 .content__header {
   border-bottom: 1px solid black;
-  padding: 10px 0px;
+  margin: 10px 0px;
 }
 
 .content__title {
@@ -123,7 +124,9 @@ table {
 
 .content__article h1, .content__article h2, .content__article h3, .content__article h4, .content__article h5 {
   font-weight: bold;
-  padding: 20px 0px 20px 0px;
+  margin: 20px 0px 20px 0px;
+  border-bottom: solid 1px black;
+  display: block;
 }
 
 .content__article h1 {
@@ -146,10 +149,28 @@ table {
   font-size: 8px;
 }
 
-.content__article p {
+.content__article pre {
+  margin: 5px 0px;
+}
+
+.content__article pre code {
+  white-space: pre;
   padding: 10px;
   background: black;
   color: white;
+  display: block;
+}
+
+.content__article p {
+  margin: 5px 0px;
+}
+
+.content__article p code {
+  padding: 2px;
+  background: black;
+  color: white;
+  display: inline-block;
+  margin: 2px;
 }
 
 .content__article ul, .content__article ol {
