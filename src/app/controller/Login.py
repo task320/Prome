@@ -37,7 +37,7 @@ class Login():
         if(proc_result):
             if(user.get_users_id()):
                 session['user_id'] = user.get_users_id()
-                return redirect(url_for('console', proc='list'))
+                return redirect(url_for('router.console', proc='list'))
     
         return Response(
             HtmlRender.render('login.html', {'auth_result':'No'}),

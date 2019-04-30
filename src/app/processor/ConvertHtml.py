@@ -14,7 +14,7 @@ class ConvertHtml:
     
     def __init__(self, source):
         self.source = source
-        self.md_processor = md()
+        self.md_processor = md(extensions=['fenced_code'])
        
        
     def to_html(self):

@@ -4,6 +4,13 @@
 
 $indent: 20px;
 
+@mixin common-code-properties($padding, $display) {
+	padding: $padding;
+	background: black;
+	color: white;
+	display: $display;
+}
+
 .pagination {
 	border: 1px solid black;
 	box-shadow: 5px 5px;
@@ -22,13 +29,14 @@ $indent: 20px;
 	border: 1px solid black;
 	box-shadow: 5px 5px;
 	padding: 10px 10px 30px 10px;
-	margin: 0 auto;
+	margin: 10px auto;
 	width: 80%;
+	line-height: 1.6;
 }
 
 .content__header {
 	border-bottom: 1px solid black;
-	padding: 10px 0px
+	margin: 10px 0px
 }
 
 .content__title {
@@ -54,7 +62,9 @@ $indent: 20px;
 .content__article {
 	h1, h2, h3, h4, h5 {
 		font-weight: bold;
-		padding: 20px 0px 20px 0px;
+		margin: 20px 0px 20px 0px;
+		border-bottom: solid 1px black;
+		display: block;
 	}
 	h1 {
 		font-size: 32px;
@@ -71,13 +81,20 @@ $indent: 20px;
 	h5 {
 		font-size: 8px;
 	}
-
-	p {
-		padding: 10px;
-		background: black;
-		color: white;
+	pre {
+		margin: 5px 0px;
+		code {
+			white-space: pre;
+			@include common-code-properties(10px, block);
+		}
 	}
-
+	p {
+		margin: 5px 0px;
+		code {
+			@include common-code-properties(2px, inline-block);
+			margin: 2px;
+		}
+	}
 	ul, ol  {
 		margin: 0px 0px 0px $indent;
 	}
