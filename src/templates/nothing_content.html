@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>Prome</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='style/nothing_content.css')}}">
+    </head>
+    <body>
+        {% include "include/header.html" %}
+        <div class="display">
+            <span class="display__message">指定した記事は存在しません。</span>
+        </div>
+        {% include "include/footer.html" %}
+    </body>
+</html>
