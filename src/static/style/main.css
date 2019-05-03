@@ -54,6 +54,11 @@ table {
   background-color: black;
 }
 
+.header a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 .header__title {
   color: white;
   font-size: 64px;
