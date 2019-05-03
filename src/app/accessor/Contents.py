@@ -32,7 +32,7 @@ class Contents(DbConection):
             self.target_data = self.session\
                             .query(model_contents)\
                             .filter_by(id = contents_id)\
-                            .first()
+                            .all()
            
             if(self.target_data):
                 return True             
