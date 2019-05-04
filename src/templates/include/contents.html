@@ -17,6 +17,11 @@
             <div class="content-tags__tag">{{ tag }}</div>
         {% endfor %}
         </div>
+        {% if param.twitter_card %}
+        <div class="content__sns">
+                <div id="tweet_button"></div>
+        </div>
+        {% endif %}
     </article>
     {% endfor %}
 </section>

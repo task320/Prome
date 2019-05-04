@@ -96,7 +96,7 @@ table {
   border: 1px solid black;
   -webkit-box-shadow: 5px 5px;
           box-shadow: 5px 5px;
-  padding: 10px 10px 30px 10px;
+  padding: 10px;
   margin: 10px auto;
   width: 80%;
   line-height: 1.6;
@@ -104,7 +104,7 @@ table {
 
 .content__header {
   border-bottom: 1px solid black;
-  margin: 10px 0px;
+  margin: 0px 0px 10px 0px;
 }
 
 .content__title {
@@ -204,4 +204,8 @@ table {
   display: inline-block;
   margin: 5px;
 }
-/*# sourceMappingURL=main.css.map */
+
+.content__sns {
+  text-align: center;
+  padding: 10px 0px 0px 0px;
+}
