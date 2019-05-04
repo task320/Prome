@@ -1,5 +1,11 @@
 <header class="header">
-    <span class="header__title">
-        <a href="{{ url_for('router.get_all', proc='all', page=1) }}">Prome</a>
-    </span>
+    <div class="header__title-area">
+        <span class="header__title">
+                <a href="{{ url_for('router.get_all', proc='all', page=1) }}">Prome</a>
+        </span>
+    </div>
+    <div class="header__running-area">
+        <div class="header__running-title">インスタンス稼働時間帯</div>
+        <div class="header__running-timezone">9:00 〜 24:00</div>
+    </div>
 </header>
