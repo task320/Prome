@@ -52,6 +52,7 @@ table {
   width: 100%;
   height: 100px;
   background-color: black;
+  color: white;
 }
 
 .header a {
@@ -59,9 +60,21 @@ table {
   text-decoration: inherit;
 }
 
+.header__title-area {
+  display: inline-block;
+}
+
 .header__title {
-  color: white;
   font-size: 64px;
+}
+
+.header__running-area {
+  display: inline-block;
+  margin: 0px 20px;
+}
+
+.header__running-area .header__running-timezone {
+  text-align: center;
 }
 
 .footer {

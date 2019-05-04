@@ -2,6 +2,7 @@
 	width: 100%;
     height: 100px;
 	background-color: black;
+	color: white;
 
 	a {
 		color: inherit;
@@ -9,7 +10,23 @@
 	}
 }
 
+.header__title-area {
+	display: inline-block;
+}
+
 .header__title {
-	color: white;
-	font-size: 64px
+	font-size: 64px;
+}
+
+.header__running-area {
+	display: inline-block;
+	margin: 0px 20px;
+
+	.header__running-title {
+
+	}
+
+	.header__running-timezone {
+		text-align: center;
+	}
 }
