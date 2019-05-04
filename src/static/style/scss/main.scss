@@ -28,7 +28,7 @@ $indent: 20px;
 .content {
 	border: 1px solid black;
 	box-shadow: 5px 5px;
-	padding: 10px 10px 30px 10px;
+	padding: 10px;
 	margin: 10px auto;
 	width: 80%;
 	line-height: 1.6;
@@ -36,7 +36,7 @@ $indent: 20px;
 
 .content__header {
 	border-bottom: 1px solid black;
-	margin: 10px 0px
+	margin: 0px 0px 10px 0px;
 }
 
 .content__title {
@@ -121,4 +121,9 @@ $indent: 20px;
 .content-tags__tag{
 	display:inline-block;
 	margin: 5px;
+}
+
+.content__sns {
+	text-align: center;
+	padding: 10px 0px 0px 0px;
 }

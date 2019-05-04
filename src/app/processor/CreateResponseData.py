@@ -4,6 +4,7 @@ Created on 2018/11/24
 @author: Tanuki
 '''
 from app.dto.Response import Response
+from app.model.TwitterCardSummary import TwitterCardSummary
 from Config import Config
 from app.processor.ConvertHtml import ConvertHtml
 
@@ -25,5 +26,6 @@ def create_respone_contents_data(current_page, number_of_content, contents):
 def create_respone_content_data(content):
         
     content[0].html_content = ConvertHtml(content[0].content).to_html()
+    twitterCard =  TwitterCardSummary(content[0])
     
-    return Response(None, None, None, content)
+    return Response(None, None, None, content, twitterCard)
