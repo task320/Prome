@@ -4,11 +4,10 @@ from Config import Config
 class Response:
 
     def __init__(self, message, pager=None, current_page=None, contents=None, twitter_card=None):
+        self.title = Config.APP_NAME
         if request.endpoint == 'router.get_all':
             if request.view_args.get('proc') == 'one':
                 self.title = '{0} - {1}'.format(contents[0].title, Config.APP_NAME)
-        else:
-            self.title = Config.APP_NAME
         self.message = message
         if not(pager is None):
             self.pager = pager
