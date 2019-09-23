@@ -29,3 +29,9 @@ def create_respone_content_data(content):
     twitterCard =  TwitterCardSummary(content[0])
     
     return Response(None, None, None, content, twitterCard)
+
+def create_respone_edit_content_data(content):
+        
+    content[0].html_content = ConvertHtml(content[0].content).to_html()
+
+    return Response(None, None, None, content[0])
