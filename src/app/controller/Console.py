@@ -7,7 +7,7 @@ from flask import Response as f_response, request
 from app.dto.Response import Response
 from app.accessor.Contents import Contents as dao_contents
 from app.processor.HtmlRender import HtmlRender
-
+from app.processor import CreateResponseData
 
 class Console():
     @classmethod
@@ -39,8 +39,9 @@ class Console():
         contents = dao_contents()
         result = contents.selectContent(content_id)
         if(result):
+            params = CreateResponseData.create_respone_edit_content_data(contents.get_target_content())
             return f_response(
-                    HtmlRender.render('edit.html', Response(None, None, None, contents.get_target_content())),
+                    HtmlRender.render('edit.html', params),
                     mimetype='text/html',
                     content_type='text/html',
                     status=200
