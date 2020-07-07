@@ -1,4 +1,4 @@
-from Config import Config 
+from AppConfig import Config 
 
 class TwitterCardSummary:
     def __init__(self, content ):

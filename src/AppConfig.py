@@ -5,7 +5,7 @@ Created on 2018/11/21
 '''
 import os
 
-class Config(object):
+class Config:
     APP_NAME = 'Prome'
     DEBUG = True
     SQLALCHEMY_ECHO = True
@@ -14,6 +14,3 @@ class Config(object):
 
     TWITTER_ACCOUNT = 'task320'
     TWITTER_CARD_IMAGE = 'https://storage.googleapis.com/prome-238513.appspot.com/twitter_card_image.png'
-
-        
-        

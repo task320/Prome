@@ -2,7 +2,7 @@ import traceback
 from app.accessor.DbConnecter import DbConection
 from app.model.Users import Users
 from sqlalchemy.sql import expression
-from Config import Config
+from AppConfig import Config
 from app.processor.Cryptor import Cryptor
 
 class User(DbConection):

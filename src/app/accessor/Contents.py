@@ -7,7 +7,7 @@ import traceback
 from app.accessor.DbConnecter import DbConection
 from sqlalchemy.sql import expression, functions
 from app.model.Contents import Contents as model_contents
-from Config import Config
+from AppConfig import Config
 
 class Contents(DbConection):
     

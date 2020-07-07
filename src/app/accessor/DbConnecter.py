@@ -6,7 +6,7 @@ Created on 2018/11/20
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from Config import Config
+from AppConfig import Config
 
 session = None
 

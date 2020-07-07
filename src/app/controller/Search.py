@@ -3,7 +3,6 @@ Created on 2018/11/18
 
 @author: Tanuki
 '''
-from flask_restful import Resource
 from flask import Request, json
 from app.dto.Response import Response
 from app.constant.Url import Url
@@ -11,7 +10,7 @@ from app.accessor.Search import Search as proc_serach
 from app.processor import CreateResponseData
 
 
-class Search(Resource):
+class Search():
     def get(self, proc):
         body_json = Request.get_json(self)
         if(proc == Url.SEARCH_TAG):

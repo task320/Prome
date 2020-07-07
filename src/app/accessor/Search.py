@@ -7,7 +7,7 @@ import traceback
 from app.accessor.DbConnecter import DbConection
 from app.model.Contents import Contents as model_contents
 from sqlalchemy.sql import expression
-from Config import Config
+from AppConfig import Config
 
 class Search(DbConection):
     '''

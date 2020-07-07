@@ -1,5 +1,5 @@
 from flask import request
-from Config import Config
+from AppConfig import Config
 
 class Response:
 
