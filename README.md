@@ -14,3 +14,11 @@
 nginx -> uwsgi ->アプリ   
 の流れでアクセスすることを考えています。
 
+## 実行
+```
+python src/Run.py
+```
+## URL
+```
+http://localhost:5000/contents/all?page=1
+```
