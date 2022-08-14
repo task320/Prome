@@ -39,7 +39,7 @@ blockquote, q {
 
 blockquote:before, blockquote:after,
 q:before, q:after {
-  content: '';
+  content: "";
   content: none;
 }
 
@@ -54,7 +54,6 @@ table {
   background-color: black;
   color: white;
 }
-
 .header a {
   color: inherit;
   text-decoration: inherit;
@@ -72,9 +71,12 @@ table {
   display: inline-block;
   margin: 0px 20px;
 }
-
+.header__running-area .header__running-title {
+  font-size: 16px;
+}
 .header__running-area .header__running-timezone {
   text-align: center;
+  font-size: 8px;
 }
 
 .footer {
@@ -93,8 +95,7 @@ table {
 
 .pagination {
   border: 1px solid black;
-  -webkit-box-shadow: 5px 5px;
-          box-shadow: 5px 5px;
+  box-shadow: 5px 5px;
   text-align: center;
   width: 80%;
   margin: 12px auto;
@@ -107,8 +108,7 @@ table {
 
 .content {
   border: 1px solid black;
-  -webkit-box-shadow: 5px 5px;
-          box-shadow: 5px 5px;
+  box-shadow: 5px 5px;
   padding: 10px;
   margin: 10px auto;
   width: 80%;
@@ -146,31 +146,24 @@ table {
   border-bottom: solid 1px black;
   display: block;
 }
-
 .content__article h1 {
   font-size: 32px;
 }
-
 .content__article h2 {
   font-size: 24px;
 }
-
 .content__article h3 {
   font-size: 16px;
 }
-
 .content__article h4 {
   font-size: 12px;
 }
-
 .content__article h5 {
   font-size: 8px;
 }
-
 .content__article pre {
   margin: 5px 0px;
 }
-
 .content__article pre code {
   white-space: pre;
   padding: 10px;
@@ -178,11 +171,9 @@ table {
   color: white;
   display: block;
 }
-
 .content__article p {
   margin: 5px 0px;
 }
-
 .content__article p code {
   padding: 2px;
   background: black;
@@ -190,19 +181,15 @@ table {
   display: inline-block;
   margin: 2px;
 }
-
 .content__article ul, .content__article ol {
   margin: 0px 0px 0px 20px;
 }
-
 .content__article ul {
   list-style-type: square;
 }
-
 .content__article ol {
   list-style-type: decimal;
 }
-
 .content__article li {
   padding: 5px 0px;
 }
