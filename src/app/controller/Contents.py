@@ -46,21 +46,29 @@ class Contents():
 
     @staticmethod
     def contents_all(arg_current_page):
+        current_page = 1
         if(ConvertType.possibleConvertStringToInt(arg_current_page)):
             current_page = ConvertType.convertStringToInt(arg_current_page)
-            page_zero_base = current_page - 1
-            if not page_zero_base < 0:
-                dao = dao_contents()
-                if(dao.countContents() & dao.selectContentAll(page_zero_base)):
-                    params = CreateResponseData.create_respone_contents_data(current_page, dao.get_count(), dao.get_target_content())
-                    return f_response(
-                        HtmlRender.render('index.html', params),
-                        mimetype='text/html',
-                        content_type='text/html',
-                        status=200
-                    )
-        
-        return redirect(url_for('router.get_all', proc='all', page=1))
+        page_zero_base = current_page - 1
+        if not page_zero_base < 0:
+            dao = dao_contents()
+            if(dao.countContents() & dao.selectContentAll(page_zero_base)):
+                params = CreateResponseData.create_respone_contents_data(current_page, dao.get_count(), dao.get_target_content())
+                return f_response(
+                    HtmlRender.render('index.html', params),
+                    mimetype='text/html',
+                    content_type='text/html',
+                    status=200
+                )
+
+        # 記事が表示ができない場合
+        return f_response(
+            HtmlRender.render('nothing_content.html', None),
+            mimetype='text/html',
+            content_type='text/html',
+            status=200
+        )
+
 
     
         
