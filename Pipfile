@@ -13,7 +13,6 @@ sqlalchemy = "*"
 markdown = "*"
 jinja2 = "*"
 psycopg2 = "~=2.8"
-uwsgi = "*"
 
 [requires]
 python_version = "3.8"
