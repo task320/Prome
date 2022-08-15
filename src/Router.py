@@ -8,6 +8,9 @@ from app.controller.Console import Console
 
 router = Blueprint('router', __name__)
 
+@router.route('/', methods=['GET'])
+def root():
+    return redirect(url_for('router.get_all', proc='all', page='1'))
 @router.route('/contents/<proc>', methods=['GET'])
 def get_all(proc):
     return Contents.get(proc)

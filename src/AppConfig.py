@@ -7,8 +7,8 @@ import os
 
 class Config:
     APP_NAME = 'Prome'
-    DEBUG = True
-    SQLALCHEMY_ECHO = True
+    DEBUG = False
+    SQLALCHEMY_ECHO = False
     DATABASE_URI =  os.getenv('DATABASE_URI')
     DISPLAY_NUMBER_OF_CONTENTS = 5
 

@@ -15,6 +15,6 @@ app.register_blueprint(router)
 app.secret_key = os.urandom(32)  
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
     
     
