@@ -21,8 +21,19 @@ $indent: 20px;
 
 }
 
+.pagination__contents{
+	display:flex;
+	justify-content: center;
+}
+
 .pagination__page {
 	margin: 5px;
+}
+
+.pagination__page--selected{
+	padding: 2px;
+	background-color: black;
+	color: white;
 }
 
 .content {

@@ -14,11 +14,9 @@ def create_respone_contents_data(current_page, number_of_content, contents):
     if((number_of_content % Config.DISPLAY_NUMBER_OF_CONTENTS) > 0):
         pager += 1
     
-    loop_max_value = number_of_content - 1
-    if loop_max_value < 0:
-        loop_max_value = 0
+    loop_max_value = len(contents)
 
-    for i in range(0,number_of_content):  
+    for i in range(0,loop_max_value):  
         contents[i].html_content = ConvertHtml(contents[i].content).to_html()
     
     return Response(None, pager, current_page, contents)

@@ -1,16 +1,18 @@
 <div class="pagination">
     <span>Page</span>
+    <div class="pagination__contents">
     {% for n in range(param.pager) %}
         {% with value_page = n + 1 %}
             <div class="pagination__page">
-            {% if value_page is divisibleby(param.current_page) %}
-                {{ value_page }}
+            {% if value_page == param.current_page %}
+                <span class="pagination__page--selected">{{ value_page }}</span>
             {% else %}
-                <a href="./contents/all?page={{ value_page }}">
+                <a href="/contents/all?page={{ value_page }}">
                     {{ value_page }}
                 </a>
             {% endif %}
             </div>
         {% endwith %}
     {% endfor %} 
+    </div>
 </div>
