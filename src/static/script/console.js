@@ -10,9 +10,31 @@ function deleteContent(id){
     }
 }
 
-function postContent(){
-    let result = confirm('投稿します。よろしいですか？')
+function postMdContent(){
+    let titleElement = document.getElementById("title");
+    if(!titleElement.value){
+        alert("記事のタイトルが設定されていません。");
+        return;
+    }
+
+    let uploadFileElement = document.getElementById("uploadFile");
+    if(!uploadFileElement.value){
+        alert("Markdownファイルが指定されていません。");
+        return;
+    }
+
+
+    let result = confirm('投稿します。よろしいですか？');
     if(result){
-        document.formContent.submit()
+        let tagsElement = document.getElementById("tag-list"); 
+        let arrayTags = [];
+        for(let i = 0; i < tagsElement.children.length; i++){
+            arrayTags.push(tagsElement.children[i].children[0].innerText);
+        }
+        let jsonTags = JSON.stringify(arrayTags);
+        let tagsHidden = document.postContent.tags;
+        tagsHidden.value = jsonTags;
+        
+        document.postContent.submit()
     }
 }

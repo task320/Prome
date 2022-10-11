@@ -3,17 +3,33 @@
     <head>
         <meta charset="UTF-8">
         <script src="{{ url_for('static', filename='script/console.js') }}"></script>
+        <script src="{{ url_for('static', filename='script/tag.js') }}"></script>
+        <link href="{{ url_for('static', filename='style/tag.css') }}" rel="stylesheet">
         <title>Prome Console</title>
     </head>
     <body>
         {% include "include/header.html" %}
         <h1>新規</h1>
         <div>
-            <form name="postContent" enctype="multipart/form-data" method="POST" action="{{ url_for('router.file', proc='post') }}">
-                タイトル：<input name="title" type="text" />
-                タグ：<input name="tags" type="text" />
-                mdファイル：<input name="uploadFile" type="file" />
-                <button onclick="postContent()">投稿</button>
+            <form name="postContent" onsubmit="return false;" enctype="multipart/form-data" method="POST" action="{{ url_for('router.file', proc='post') }}">
+                <div>
+                    タイトル：<input id="title" name="title" type="text" />
+                </div>
+                <div>
+                    タグ：
+                    <div class="fake-text" onclick="forcusInput();">
+                        <ul class="tag-list" id="tag-list">
+                        </ul>
+                        <input id="tag-input" class ="tag-input" type="text" onkeydown="tagInputKeydwon(event);"/>
+                    </div>
+                    <input type="hidden" name="tags" value="" />
+                </div>
+                <div>
+                    mdファイル：<input id="uploadFile" name="uploadFile" type="file" />
+                </div>
+                <div>
+                    <button type="button" onclick="postMdContent();">投稿</button>
+                </div>
             </form>
         </div>
         <h1>編集・削除</h1>
